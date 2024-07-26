@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Assignment2</string>
+
+    <string name="movie_title">Movie Rating</string>
+    <string name="inst_title">Instruction Feedback</string>
+    <string name="item3_title">Item 3</string>
+
+    <string name="main_heading">Options Menu</string>
+    <string name="main_result_text_view">Feedback Rating</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="area_frag_heading">Area fragment</string>
+    <string name="area_length">Base/Side/Length</string>
+    <string name="area_breadth">Height/Breadth</string>
+    <string name="area_btn_txt">Calculate Area</string>
+
+
+    <string name="weather_frag_heading">Weather fragment</string>
+    <string name="weather_input">Enter value</string>
+    <string name="weather_btn_txt">Convert</string>
+
+</resources>
