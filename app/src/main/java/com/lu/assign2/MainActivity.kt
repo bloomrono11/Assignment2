@@ -1,11 +1,13 @@
 package com.lu.assign2
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
 import android.widget.AdapterView.OnItemSelectedListener
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -53,6 +55,7 @@ class MainActivity : AppCompatActivity() {
                     WEATHER -> {
                         frag = WeatherFragment()
                     }
+
                     else -> {
                         supportFragmentManager.popBackStack()
                     }
@@ -72,6 +75,13 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
+
+
+        onBackPressedDispatcher.addCallback(context, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                myHandleBackPressed()
+            }
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -99,6 +109,23 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return true
+    }
+
+    /**
+     * Alternative to {@link #onBackPressed}
+     * https://stackoverflow.com/questions/72634225/onbackpressed-is-deprecated-what-is-the-alternative
+     * Below is how to do Alert Dialog
+     * https://www.youtube.com/watch?v=VAvtYh_Dwdg&ab_channel=coursecode
+     */
+    fun myHandleBackPressed() {
+        AlertDialog.Builder(this)
+            .setTitle("Alert Dialog")
+            .setMessage("Do you really want to quit")
+            .setCancelable(false)
+            .setPositiveButton("Yes") { _, _ -> finish() }
+            .setNegativeButton("No") { dialog, _ -> dialog.cancel() }
+            .create()
+            .show()
     }
 
     fun receiveFeedback(text: CharSequence?) {
