@@ -17,6 +17,7 @@ class FixedValues {
         const val NO_OPTION = "Select one"
         const val AREA = "Area"
         const val WEATHER = "Weather"
+        const val INTENT = "Intent"
 
         //Area
         const val RECT = "Rectangle"

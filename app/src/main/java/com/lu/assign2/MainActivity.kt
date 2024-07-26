@@ -13,16 +13,18 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.lu.assign2.cons.FixedValues
 import com.lu.assign2.cons.FixedValues.Companion.AREA
+import com.lu.assign2.cons.FixedValues.Companion.INTENT
 import com.lu.assign2.cons.FixedValues.Companion.NO_OPTION
 import com.lu.assign2.cons.FixedValues.Companion.WEATHER
 import com.lu.assign2.dialog.InstructionDialogFrag
 import com.lu.assign2.dialog.MovieDialogFrag
 import com.lu.assign2.frag.AreaFragment
+import com.lu.assign2.frag.IntentFragment
 import com.lu.assign2.frag.WeatherFragment
 
 class MainActivity : AppCompatActivity() {
 
-    private val options = arrayOf(NO_OPTION, AREA, WEATHER)
+    private val options = arrayOf(NO_OPTION, AREA, WEATHER, INTENT)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,6 +58,10 @@ class MainActivity : AppCompatActivity() {
                         frag = WeatherFragment()
                     }
 
+                    INTENT -> {
+                        frag = IntentFragment()
+                    }
+
                     else -> {
                         supportFragmentManager.popBackStack()
                     }
@@ -76,7 +82,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-
+        //Back button press handlers
         onBackPressedDispatcher.addCallback(context, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 myHandleBackPressed()

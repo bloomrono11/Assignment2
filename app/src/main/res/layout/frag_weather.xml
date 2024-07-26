@@ -12,7 +12,7 @@
         <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/fragWeatherId"
+                android:id="@+id/weatherFragHeadTV"
                 android:text="@string/weather_frag_heading"
 
                 android:textSize="32sp"
@@ -37,7 +37,7 @@
 
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragWeatherId"
+                app:layout_constraintTop_toBottomOf="@+id/weatherFragHeadTV"
         />
 
 
