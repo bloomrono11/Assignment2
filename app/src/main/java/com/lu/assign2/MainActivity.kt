@@ -2,6 +2,7 @@ package com.lu.assign2
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -69,11 +70,15 @@ class MainActivity : AppCompatActivity() {
                 }
                 if (frag == null) return
 
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.frameView, frag)
-                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                    .addToBackStack(null)
-                    .commit()
+                try {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.frameView, frag)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .addToBackStack(null)
+                        .commit()
+                } catch (ex:RuntimeException){
+                    Log.e(TAG, ex.stackTraceToString())
+                }
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -142,6 +147,10 @@ class MainActivity : AppCompatActivity() {
         }
         feedbackTV.text = text
         feedbackTV.visibility = View.VISIBLE
+    }
+
+    companion object{
+        const val TAG = "MainActivity"
     }
 
 }
