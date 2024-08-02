@@ -12,7 +12,7 @@
             android:layout_height="match_parent"
             android:id="@+id/midtermHeaderTV"
 
-            android:text="How was the movie?"
+            android:text="How was instruction quality?"
             android:textSize="32sp"
             android:textStyle="bold"
             android:textAlignment="center"
